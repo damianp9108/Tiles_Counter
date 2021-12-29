@@ -6,6 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         boolean shouldContinue = false;
+        boolean userWantChoose = true;
         double l = 0;
         double w = 0;
         double h = 0;
@@ -15,15 +16,11 @@ public class Main {
         double szerokoscDrzwi = 0;
         double wysokoscOkna = 0;
         double szerokoscOkna = 0;
-        int wzorPodlogi = 0;
-        int wzorSciany = 0;
+        int userChoise = 0;
         Scanner scanner = new Scanner(System.in);
-        Podloga podloga = new Podloga();
-        Sciana sciana = new Sciana();
-        Fuga fuga = new Fuga();
+        Service service = new Service();
 
 
-        // Pobranie wymiarów pomieszczenia od użytkownika.
 
         while (!shouldContinue) {
             System.out.println("Proszę podać długość pomieszczenia w metrach");
@@ -59,7 +56,6 @@ public class Main {
         }
 
 
-        // Pobranie od uzytkownika liczby okien i drzwi
 
         while (shouldContinue) {
             System.out.println("Proszę podać liczbę otworów drzwiowych");
@@ -83,7 +79,7 @@ public class Main {
             }
         }
 
-        // Pobranie od użytkownika wymiarów okien i drzwi.
+
 
         while (shouldContinue) {
             System.out.println("Proszę podać wysokość otworu drzwiowego w metrach");
@@ -129,82 +125,45 @@ public class Main {
             }
         }
 
-        while (shouldContinue) {
-            System.out.println("Proszę wybrać wzór ułożenia płytek dla podłogi. Wpisz '1' dla wzoru klasyczego lub '2' dla wzoru karo");
-            try {
-                wzorPodlogi = Integer.valueOf(scanner.nextLine());
-                if (wzorPodlogi != 1 && wzorPodlogi != 2) {
-                    System.out.println("Masz tylko dwie cyfry do wyboru!");
-                } else shouldContinue = false;
 
-            } catch (NumberFormatException exception) {
-                System.out.println("Niepoprawne dane");
+        while (userWantChoose) {
+            System.out.println();
+            System.out.println("Wymiary płytki podłogowej: 50 cm x 50 cm");
+            System.out.println("Wymiary płytki ściennej: 50 cm x 35 cm");
+            System.out.println("Szerokość fugi: 0.6 cm");
+            System.out.println("Wysokość fugi: 1 cm");
+            System.out.println("Waga fugi dla 1 dm3: 2 kg");
+            System.out.println();
+            System.out.println("Wybierz opcję:");
+            System.out.println("1. Oblicz ilość potrzebnych płytek podłogowych oraz wagę potrzebnej fugi dla wzoru klasycznego");
+            System.out.println("2. Oblicz ilość potrzebnych płytek podłogowych oraz wagę potrzebnej fugi dla wzoru karo");
+            System.out.println("3. Oblicz ilość potrzebnych płytek ściennych oraz wagę potrzebnej fugi dla wzoru klasycznego");
+            System.out.println("4. Oblicz ilość potrzebnych płytek ściennych oraz wagę potrzebnej fugi dla wzoru karo");
+            System.out.println("5. Wyjście");
+            System.out.println();
+
+
+            try {
+                userChoise = Integer.valueOf(scanner.nextLine());
+            } catch (NumberFormatException n) {
+                System.out.println("To nie jest liczba");
             }
 
-        }
 
-        while (!shouldContinue) {
-            System.out.println("Proszę wybrać wzór ułożenia płytek dla ścian. Wpisz '1' dla wzoru klasyczego lub '2' dla wzoru karo");
-            try {
-                wzorSciany = Integer.valueOf(scanner.nextLine());
-                if (wzorSciany != 1 && wzorSciany != 2) {
-                    System.out.println("Masz tylko dwie cyfry do wyboru!");
-                } else shouldContinue = true;
+            if (userChoise < 1 || userChoise > 5) {
+                System.out.println("Podaj cyfre od 1 do 5!");
+            } else {
+                switch (userChoise) {
+                    case 1 -> System.out.println(service.method1(w, l));
+                    case 2 -> System.out.println(service.method2(w, l));
+                    case 3 -> System.out.println(service.method3(w, l, h, liczbaDrzwi, liczbaOkien, wysokoscDrzwi, szerokoscDrzwi, wysokoscOkna, szerokoscOkna));
+                    case 4 -> System.out.println(service.method4(w, l, h, liczbaDrzwi, liczbaOkien, wysokoscDrzwi, szerokoscDrzwi, wysokoscOkna, szerokoscOkna));
+                    case 5 -> userWantChoose = false;
+                }
 
-            } catch (NumberFormatException exception) {
-                System.out.println("Niepoprawne dane");
+
             }
 
-        }
-
-        double polePlytkiPodlogowej = podloga.polePlytkiPodlogowej(podloga.getDlugoscPlytkiPodlogowej(), podloga.getSzerokoscPlytkiPodlogowej(), fuga.getSzerokoscFugi());
-
-        if (wzorPodlogi == 1) {
-            double polePodlogi = podloga.polePodlogiWzorKlasyczny(l, w);
-            double n = polePodlogi / polePlytkiPodlogowej;
-            int liczbaPotrzebnychPlytek = (int) n + 1;
-
-            System.out.println();
-            System.out.println("Liczba potrzebnych płytek podłogowych dla wzoru klasycznego: " + liczbaPotrzebnychPlytek);
-            double wagaPotrzebnejFugi = fuga.wagaPotrzebnejFugiDlaPlytekPodlogowych(liczbaPotrzebnychPlytek);
-            System.out.println("Waga potrzebnej fugi dla " + liczbaPotrzebnychPlytek + " płytek podłogowych dla wzoru klasycznego: " + wagaPotrzebnejFugi + " kg");
-            System.out.println();
-
-        } else if (wzorPodlogi == 2) {
-            double polePodlogi = podloga.polePodlogiWzorKaro(l, w);
-            double n = polePodlogi / polePlytkiPodlogowej;
-            int liczbaPotrzebnychPlytek = (int) n + 1;
-
-            System.out.println();
-            System.out.println("Liczba potrzebnych płytek podłogowych dla wzoru karo: " + liczbaPotrzebnychPlytek);
-            double wagaPotrzebnejFugi = fuga.wagaPotrzebnejFugiDlaPlytekPodlogowych(liczbaPotrzebnychPlytek);
-            System.out.println("Waga potrzebnej fugi dla " + liczbaPotrzebnychPlytek + " płytek podłogowych dla wzoru karo: " + wagaPotrzebnejFugi + " kg");
-            System.out.println();
-        }
-
-        double polePlytkiSciennej = sciana.polePlytkiSciennej(sciana.getDlugoscPlytkiSciennej(), sciana.getSzerokoscPlytkiSciennej(), fuga.getSzerokoscFugi());
-        double poleWszystkichOtworowSciennych = sciana.poleWszystkichOtworowSciennych(liczbaDrzwi, liczbaOkien, wysokoscDrzwi, szerokoscDrzwi, wysokoscOkna, szerokoscOkna);
-
-        if (wzorSciany == 1) {
-            double poleScianBezOtworow = sciana.poleScianBezOtworowWzorKlasyczny(w, l, h);
-            double poleScianZotworami = poleScianBezOtworow - poleWszystkichOtworowSciennych;
-
-            double n = poleScianZotworami / polePlytkiSciennej;
-            int liczbaPotrzebnychPlytek = (int) n + 1;
-
-            System.out.println("Liczba potrzebnych płytek ściennych dla wzoru klasycznego: " + liczbaPotrzebnychPlytek);
-            double wagaPotrzebnejFugi = fuga.wagaPotrzebnejFugiDlaPlytekSciennych(liczbaPotrzebnychPlytek);
-            System.out.println("Waga potrzebnej fugi dla " + liczbaPotrzebnychPlytek + " płytek ściennych dla wzoru klasycznego: " + wagaPotrzebnejFugi + " kg");
-
-        } else if (wzorSciany == 2) {
-            double poleScianBezOtworow = sciana.poleScianBezOtworowWzorKaro(w, l, h);
-            double poleScianZotworami = poleScianBezOtworow - poleWszystkichOtworowSciennych;
-            double n = poleScianZotworami / polePlytkiSciennej;
-            int liczbaPotrzebnychPlytek = (int) n + 1;
-
-            System.out.println("Liczba potrzebnych płytek ściennych dla wzoru karo: " + liczbaPotrzebnychPlytek);
-            double wagaPotrzebnejFugi = fuga.wagaPotrzebnejFugiDlaPlytekSciennych(liczbaPotrzebnychPlytek);
-            System.out.println("Waga potrzebnej fugi dla " + liczbaPotrzebnychPlytek + " płytek ściennych dla wzoru karo: " + wagaPotrzebnejFugi + " kg");
         }
 
 

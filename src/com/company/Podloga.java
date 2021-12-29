@@ -16,7 +16,6 @@ public class Podloga {
 
 
 
-
     public double polePodlogiWzorKlasyczny(double l, double w){
         return 1.05*l*w;
     }

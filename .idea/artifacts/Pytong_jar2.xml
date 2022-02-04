@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Pytong:jar2">
+    <output-path>$USER_HOME$/OneDrive/Pulpit/dla Bartka</output-path>
+    <root id="archive" name="Pytong.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/src/resources/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="Tiles_Counter" />
+    </root>
+  </artifact>
+</component>

@@ -14,7 +14,7 @@ public class Service {
         int liczbaPotrzebnychPlytek = (int) n + 1;
         double wagaPotrzebnejFugi = fuga.wagaPotrzebnejFugiDlaPlytekPodlogowych(liczbaPotrzebnychPlytek);
 
-        return "Liczba potrzebnych płytek podłogowych dla wzoru klasycznego: " + liczbaPotrzebnychPlytek + ". Waga potrzebnej fugi dla " + liczbaPotrzebnychPlytek + " płytek podłogowych dla wzoru klasycznego: " + wagaPotrzebnejFugi + " kg";
+        return "Liczba potrzebnych plytek podlogowych dla wzoru klasycznego: " + liczbaPotrzebnychPlytek + ". Waga potrzebnej fugi dla " + liczbaPotrzebnychPlytek + " plytek podlogowych dla wzoru klasycznego: " + wagaPotrzebnejFugi + " kg";
     }
 
     public String method2(double w, double l) {
@@ -24,7 +24,7 @@ public class Service {
         int liczbaPotrzebnychPlytek = (int) n + 1;
         double wagaPotrzebnejFugi = fuga.wagaPotrzebnejFugiDlaPlytekPodlogowych(liczbaPotrzebnychPlytek);
 
-        return "Liczba potrzebnych płytek podłogowych dla wzoru karo: " + liczbaPotrzebnychPlytek + ". Waga potrzebnej fugi dla " + liczbaPotrzebnychPlytek + " płytek podłogowych dla wzoru karo: " + wagaPotrzebnejFugi + " kg";
+        return "Liczba potrzebnych plytek podlogowych dla wzoru karo: " + liczbaPotrzebnychPlytek + ". Waga potrzebnej fugi dla " + liczbaPotrzebnychPlytek + " plytek podlogowych dla wzoru karo: " + wagaPotrzebnejFugi + " kg";
     }
 
 
@@ -37,7 +37,7 @@ public class Service {
         int liczbaPotrzebnychPlytek = (int) n + 1;
         double wagaPotrzebnejFugi = fuga.wagaPotrzebnejFugiDlaPlytekSciennych(liczbaPotrzebnychPlytek);
 
-        return "Liczba potrzebnych płytek ściennych dla wzoru klasycznego: " + liczbaPotrzebnychPlytek + ". Waga potrzebnej fugi dla " + liczbaPotrzebnychPlytek + " płytek ściennych dla wzoru klasycznego: " + wagaPotrzebnejFugi + " kg";
+        return "Liczba potrzebnych plytek sciennych dla wzoru klasycznego: " + liczbaPotrzebnychPlytek + ". Waga potrzebnej fugi dla " + liczbaPotrzebnychPlytek + " plytek sciennych dla wzoru klasycznego: " + wagaPotrzebnejFugi + " kg";
     }
 
 
@@ -50,8 +50,7 @@ public class Service {
 
         double wagaPotrzebnejFugi = fuga.wagaPotrzebnejFugiDlaPlytekSciennych(liczbaPotrzebnychPlytek);
 
-        return "Liczba potrzebnych płytek ściennych dla wzoru karo: " + liczbaPotrzebnychPlytek + ". Waga potrzebnej fugi dla " + liczbaPotrzebnychPlytek + " płytek ściennych dla wzoru karo: " + wagaPotrzebnejFugi + " kg";
+        return "Liczba potrzebnych plytek sciennych dla wzoru karo: " + liczbaPotrzebnychPlytek + ". Waga potrzebnej fugi dla " + liczbaPotrzebnychPlytek + " plytek sciennych dla wzoru karo: " + wagaPotrzebnejFugi + " kg";
     }
-
 
 }

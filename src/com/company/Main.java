@@ -23,7 +23,7 @@ public class Main {
 
 
         while (!shouldContinue) {
-            System.out.println("Proszę podać długość pomieszczenia w metrach");
+            System.out.println("Prosze podac dlugosc pomieszczenia w metrach");
 
             try {
                 l = Double.valueOf(scanner.nextLine());
@@ -34,7 +34,7 @@ public class Main {
         }
 
         while (shouldContinue) {
-            System.out.println("Proszę podać szerokość pomieszczenia w metrach");
+            System.out.println("Prosze podac szerokosc pomieszczenia w metrach");
 
             try {
                 w = Double.valueOf(scanner.nextLine());
@@ -45,7 +45,7 @@ public class Main {
         }
 
         while (!shouldContinue) {
-            System.out.println("Proszę podać wysokość pomieszczenia w metrach");
+            System.out.println("Prosze podac wysokosc pomieszczenia w metrach");
 
             try {
                 h = Double.valueOf(scanner.nextLine());
@@ -58,7 +58,7 @@ public class Main {
 
 
         while (shouldContinue) {
-            System.out.println("Proszę podać liczbę otworów drzwiowych");
+            System.out.println("Prosze podac liczbe otworow drzwiowych");
 
             try {
                 liczbaDrzwi = Integer.valueOf(scanner.nextLine());
@@ -69,7 +69,7 @@ public class Main {
         }
 
         while (!shouldContinue) {
-            System.out.println("Proszę podać liczbę otworów okiennych");
+            System.out.println("Prosze podac liczbe otworow okiennych");
 
             try {
                 liczbaOkien = Integer.valueOf(scanner.nextLine());
@@ -82,7 +82,7 @@ public class Main {
 
 
         while (shouldContinue) {
-            System.out.println("Proszę podać wysokość otworu drzwiowego w metrach");
+            System.out.println("Prosze podac wysokosc otworu drzwiowego w metrach");
 
             try {
                 wysokoscDrzwi = Double.valueOf(scanner.nextLine());
@@ -93,7 +93,7 @@ public class Main {
         }
 
         while (!shouldContinue) {
-            System.out.println("Proszę podać szerokość otworu drzwiowego w metrach");
+            System.out.println("Prosze podac szerokosc otworu drzwiowego w metrach");
 
             try {
                 szerokoscDrzwi = Double.valueOf(scanner.nextLine());
@@ -104,7 +104,7 @@ public class Main {
         }
 
         while (shouldContinue) {
-            System.out.println("Proszę podać wysokość otworu okiennego w metrach");
+            System.out.println("Prosze podac wysokosc otworu okiennego w metrach");
 
             try {
                 wysokoscOkna = Double.valueOf(scanner.nextLine());
@@ -115,7 +115,7 @@ public class Main {
         }
 
         while (!shouldContinue) {
-            System.out.println("Proszę podać szerokość otworu okiennego w metrach");
+            System.out.println("Prosze podac szerokosc otworu okiennego w metrach");
 
             try {
                 szerokoscOkna = Double.valueOf(scanner.nextLine());
@@ -128,25 +128,25 @@ public class Main {
 
         while (userWantChoose) {
             System.out.println();
-            System.out.println("Wymiary płytki podłogowej: 50 cm x 50 cm");
-            System.out.println("Wymiary płytki ściennej: 50 cm x 35 cm");
-            System.out.println("Szerokość fugi: 0.6 cm");
-            System.out.println("Wysokość fugi: 1 cm");
+            System.out.println("Wymiary plytki podlogowej: 50 cm x 50 cm");
+            System.out.println("Wymiary plytki sciennej: 50 cm x 35 cm");
+            System.out.println("Szerokosc fugi: 0.6 cm");
+            System.out.println("Wysokosc fugi: 1 cm");
             System.out.println("Waga fugi dla 1 dm3: 2 kg");
             System.out.println();
-            System.out.println("Wybierz opcję:");
-            System.out.println("1. Oblicz ilość potrzebnych płytek podłogowych oraz wagę potrzebnej fugi dla wzoru klasycznego");
-            System.out.println("2. Oblicz ilość potrzebnych płytek podłogowych oraz wagę potrzebnej fugi dla wzoru karo");
-            System.out.println("3. Oblicz ilość potrzebnych płytek ściennych oraz wagę potrzebnej fugi dla wzoru klasycznego");
-            System.out.println("4. Oblicz ilość potrzebnych płytek ściennych oraz wagę potrzebnej fugi dla wzoru karo");
-            System.out.println("5. Wyjście");
+            System.out.println("Wybierz opcje (Wpisz cyfre 1-5)");
+            System.out.println("1. Oblicz ilosc potrzebnych plytek podlogowych oraz wage potrzebnej fugi dla wzoru klasycznego");
+            System.out.println("2. Oblicz ilosc potrzebnych plytek podlogowych oraz wage potrzebnej fugi dla wzoru karo");
+            System.out.println("3. Oblicz ilosc potrzebnych plytek sciennych oraz wage potrzebnej fugi dla wzoru klasycznego");
+            System.out.println("4. Oblicz ilosc potrzebnych plytek sciennych oraz wage potrzebnej fugi dla wzoru karo");
+            System.out.println("5. Wyjscie");
             System.out.println();
 
 
             try {
                 userChoise = Integer.valueOf(scanner.nextLine());
             } catch (NumberFormatException n) {
-                System.out.println("To nie jest liczba");
+                System.out.println("To nie jest liczba!");
             }
 
 
